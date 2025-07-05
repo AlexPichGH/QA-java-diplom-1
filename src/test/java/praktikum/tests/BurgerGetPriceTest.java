@@ -72,7 +72,6 @@ public class BurgerGetPriceTest {
     @Test
     public void getPriceTest() {
         float actualPrice = burger.getPrice();
-        assertEquals(expectedPrice, actualPrice, 0.001f);
         verify(mockBun, atLeastOnce()).getPrice();
         if (ingredientCount > 0) {
             verify(mockIngredient1, atLeastOnce()).getPrice();
@@ -80,5 +79,6 @@ public class BurgerGetPriceTest {
         if (ingredientCount > 1) {
             verify(mockIngredient2, atLeastOnce()).getPrice();
         }
+        assertEquals(expectedPrice, actualPrice, 0.001f);
     }
 }

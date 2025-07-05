@@ -64,7 +64,7 @@ public class BurgerRemoveIngredientTest {
 
     // Тесты для метода removeIngredient()
     @Test
-    public void removeIngredientTest() {
+    public void removeIngredientListSizeTest() {
         if (expectException) {
             assertThrows(
                     IndexOutOfBoundsException.class,
@@ -73,6 +73,18 @@ public class BurgerRemoveIngredientTest {
         } else {
             burger.removeIngredient(removeIndex);
             assertEquals(expectedSize, burger.ingredients.size());
+        }
+    }
+
+    @Test
+    public void removeIngredientListOrderTest() {
+        if (expectException) {
+            assertThrows(
+                    IndexOutOfBoundsException.class,
+                    () -> burger.removeIngredient(removeIndex)
+            );
+        } else {
+            burger.removeIngredient(removeIndex);
             Ingredient[] expectedOrder = new Ingredient[expectedSize];
             for (int i = 0; i < expectedOrderIndices.size(); i++) {
                 switch (expectedOrderIndices.get(i)) {

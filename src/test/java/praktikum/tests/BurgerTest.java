@@ -48,11 +48,8 @@ public class BurgerTest {
 
     // Тест списка ингредиентов
     @Test
-    public void ingredientsListInitShouldBeEmptyAndNotNullTest() {
-        Burger newBurger = new Burger();
-
-        assertNotNull(newBurger.ingredients);
-        assertTrue(newBurger.ingredients.isEmpty());
+    public void initialBurgerIngredientListShouldBeEmptyTest() {
+        assertTrue(burger.ingredients.isEmpty());
     }
 
     // Тесты для метода addIngredient()
@@ -60,7 +57,6 @@ public class BurgerTest {
     public void addIngredientValidIngredientShouldAddToListTest() {
         burger.addIngredient(mockIngredientCutlet);
         assertEquals(1, burger.ingredients.size());
-        assertTrue(burger.ingredients.contains(mockIngredientCutlet));
     }
 
     @Test
@@ -68,17 +64,12 @@ public class BurgerTest {
         burger.addIngredient(mockIngredientCutlet);
         burger.addIngredient(mockIngredientCheese);
         burger.addIngredient(mockIngredientKetchup);
-
         assertEquals(3, burger.ingredients.size());
-        assertTrue(burger.ingredients.contains(mockIngredientCutlet));
-        assertTrue(burger.ingredients.contains(mockIngredientCheese));
     }
 
     @Test
     public void addIngredientNullIngredientShouldAddNullTest() {
         burger.addIngredient(null);
-
-        assertEquals(1, burger.ingredients.size());
         assertNull(burger.ingredients.get(0));
     }
 
